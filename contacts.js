@@ -4,7 +4,7 @@ const path = require('path');
 
 // const contactsPath = path.parse('/e/GoIT/NodeJS/NodeJS/db/contacts.json');
 const contactsPath = path.join(__dirname, './db/contacts.json');
-console.log('contactsPath :>> ', contactsPath);
+// console.log('contactsPath :>> ', contactsPath);
 
 // async function main() {
 //     await fs.promises.readFile('contacts.json', 'utf-8');
@@ -14,18 +14,32 @@ console.log('contactsPath :>> ', contactsPath);
 // main()
 function getData(data) {
     return JSON.parse(data);
-  }
+}
+
+// console.log('data :>> ', data);
 
 async function listContacts() {
     try {
       const data = await fsPromises.readFile(contactsPath, 'utf-8');
-      console.table(getData(data));
+    //   console.table(getData(data));
     } catch (err) {
       throw err;
     }
   }
 
 listContacts()
+
+async function getContactById(contactId) {
+    try {
+      const data = await fsPromises.readFile(contactsPath, 'utf-8');
+      const list = getData(data);
+      const findItem = list.find(item => item.id === contactId);
+      console.table(findItem);
+    } catch (err) {
+      throw err;
+    }
+  }
+getContactById()
 // =========================================
 // fs.writeFileSync(+файл , текст в этом файле)
 // fs.writeFile(+файл , текст в этом файле, (err) => {
