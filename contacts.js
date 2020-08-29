@@ -32,36 +32,27 @@ listContacts()
 async function getContactById(contactId) {
     try {
       const data = await fsPromises.readFile(contactsPath, 'utf-8');
-      const list = getData(data);
-      const findItem = list.find(item => item.id === contactId);
-      console.table(findItem);
+      const listID = getData(data);
+      const findItem = listID.find(item => item.id);
+      // console.table(findItem);
     } catch (err) {
       throw err;
     }
   }
 getContactById()
-// =========================================
-// fs.writeFileSync(+файл , текст в этом файле)
-// fs.writeFile(+файл , текст в этом файле, (err) => {
-    // if (err) throw new Error(err);
-//     fs.readdir()
-// })
 
-// function listContacts() {
-//    const listCont = fs.readFile(contactsPath, 'utf-8');
-//     // const listCont = contactsPath.fs.readFile(contactsPath, 'utf-8');
-//     console.log('listCont :>> ', listCont);
-// }
-// console.log('listContacts :>> ', listContacts);
   
-// function getContactById(contactId) {
-    
-// }
-  
-// function removeContact(contactId) {
+function removeContact(contactId) {
 //     // ...твой код
-// }
+}
   
-// function addContact(name, email, phone) {
+function addContact(name, email, phone) {
 //     // ...твой код
-// }
+}
+
+module.exports = {
+  listContacts,
+  getContactById,
+  removeContact,
+  addContact,
+};
