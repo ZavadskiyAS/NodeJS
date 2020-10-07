@@ -31,7 +31,7 @@ async function listContacts() {
     }
   }
 
-listContacts()
+// listContacts()
 
 async function getContactById(contactId) {
     try {
@@ -43,7 +43,7 @@ async function getContactById(contactId) {
       throw err;
     }
   }
-getContactById()
+// getContactById()
 
 async function removeContact(contactId) {
   try {
@@ -56,7 +56,7 @@ async function removeContact(contactId) {
     throw err;
   }
 }
-removeContact();
+// removeContact();
 
 async function addContact(name, email, phone) {
   try {
@@ -75,7 +75,7 @@ async function addContact(name, email, phone) {
     throw err;
   }
 }
-addContact();
+// addContact();
 
 module.exports = {
   listContacts,
