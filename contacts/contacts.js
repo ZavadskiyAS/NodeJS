@@ -16,7 +16,8 @@ async function listContacts() {
     const data = await fsPromises.readFile(contactsPath, 'utf-8');
     return getData(data);
   } catch (err) {
-    throw err;
+    // throw err;
+    next(error);
   }
 }
 
@@ -27,7 +28,8 @@ async function getContactById(contactId) {
     const findItem = list.find(item => item.id === contactId);
     return findItem;
   } catch (err) {
-    throw err;
+    // throw err;
+    next(error);
   }
 }
 
@@ -40,7 +42,8 @@ async function removeContact(contactId) {
     await fsPromises.writeFile(contactsPath, saveData(newList));
     return findContact;
   } catch (err) {
-    throw err;
+    // throw err;
+    next(error);
   }
 }
 
@@ -58,7 +61,8 @@ async function addContact({ name, email, phone }) {
     await fsPromises.writeFile(contactsPath, saveData(newList));
     return newContact;
   } catch (err) {
-    throw err;
+    // throw err;
+    next(error);
   }
 }
 
@@ -78,7 +82,8 @@ async function editContact(contactId, body) {
       return list[findContactIdx];
     }
   } catch (err) {
-    throw err;
+    // throw err;
+    next(error);
   }
 }
 
