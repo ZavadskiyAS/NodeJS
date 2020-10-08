@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 const contactsRouter = require('./contacts/contacts.router');
+// require('dotenv').config({path: path.join(__dirname, ".env")});
 require('dotenv').config();
 
 module.exports = class ContactsServer {
